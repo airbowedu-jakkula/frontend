@@ -37,17 +37,24 @@ function formatExactDate(date) {
   if (!date) return "N/A";
   const d = new Date(date);
   if (isNaN(d.getTime())) return String(date);
-  const day = String(d.getDate()).padStart(2, "0");
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const month = monthNames[d.getMonth()];
-  const year = d.getFullYear();
-  let hours = d.getHours();
-  const minutes = String(d.getMinutes()).padStart(2, "0");
-  const ampm = hours >= 12 ? "PM" : "AM";
-  hours = hours % 12;
-  hours = hours ? String(hours).padStart(2, "0") : "12";
-  return `${day} ${month} ${year}, ${hours}:${minutes} ${ampm}`;
+  try {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Kolkata",
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const parts = formatter.formatToParts(d);
+    const getPart = (type) => parts.find((p) => p.type === type)?.value || "";
+    return `${getPart("day")} ${getPart("month")} ${getPart("year")}, ${getPart("hour")}:${getPart("minute")} ${getPart("dayPeriod").toUpperCase()} IST`;
+  } catch (e) {
+    return d.toLocaleString() + " IST";
+  }
 }
+
 
 function formatEarliestDate(d) {
   if (
@@ -257,7 +264,7 @@ export default function CategoryAvailabilityOverview() {
               Latest <span className="highlight-text">{selectedCat} (Regular) Availability</span>
             </h3>
             <p className="avail-sub">
-              Live appointment openings across India Consular &amp; OFC/VAC centers. Slot data updates in real-time from active scanner captures. Click any active date badge with 📸 to view verified screenshot proof.
+              Live appointment openings across India Consular &amp; OFC/VAC centers. Slot data updates in real-time from active scanner captures. All timestamps shown in <strong>Indian Standard Time (IST)</strong>. Click any active date badge with 📸 to view verified screenshot proof.
             </p>
           </div>
         </div>
@@ -348,7 +355,7 @@ export default function CategoryAvailabilityOverview() {
                 Total Dates Available {sortField === "totalDates" ? (sortAsc ? "↑" : "↓") : "⇅"}
               </th>
               <th onClick={() => toggleSort("lastSeen")}>
-                Last Seen At {sortField === "lastSeen" ? (sortAsc ? "↑" : "↓") : "⇅"}
+                Last Seen (IST Date &amp; Time) {sortField === "lastSeen" ? (sortAsc ? "↑" : "↓") : "⇅"}
               </th>
               <th onClick={() => toggleSort("lastSeen")}>
                 Relative Time {sortField === "lastSeen" ? (sortAsc ? "↑" : "↓") : "⇅"}
@@ -431,7 +438,7 @@ export default function CategoryAvailabilityOverview() {
       {/* Footer Timestamp */}
       <div className="avail-card-footer">
         <span className="footer-timestamp">
-          🕒 The current info is generated at {formatExactDate(generatedTime)}
+          🕒 Current overview generated at {formatExactDate(generatedTime)}
         </span>
         <span className="footer-tip">
           💡 Verified real-time screenshots are displayed when live slots are detected.

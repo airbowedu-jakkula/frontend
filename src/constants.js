@@ -19,11 +19,41 @@ export const NEWS_CATEGORIES = ["General", ...CATEGORY_GROUPS];
 export function formatDateTime(value) {
   if (!value) return "";
   const d = new Date(value);
-  return Number.isNaN(d.getTime()) ? String(value) : d.toLocaleString();
+  if (Number.isNaN(d.getTime())) return String(value);
+  try {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Kolkata",
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const parts = formatter.formatToParts(d);
+    const getPart = (type) => parts.find((p) => p.type === type)?.value || "";
+    return `${getPart("day")} ${getPart("month")} ${getPart("year")}, ${getPart("hour")}:${getPart("minute")} ${getPart("dayPeriod").toUpperCase()} IST`;
+  } catch (e) {
+    return d.toLocaleString() + " IST";
+  }
 }
 
 export function formatDate(value) {
   if (!value) return "";
   const d = new Date(value);
-  return Number.isNaN(d.getTime()) ? String(value) : d.toLocaleDateString();
+  if (Number.isNaN(d.getTime())) return String(value);
+  try {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Kolkata",
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+    });
+    const parts = formatter.formatToParts(d);
+    const getPart = (type) => parts.find((p) => p.type === type)?.value || "";
+    return `${getPart("day")} ${getPart("month")} ${getPart("year")}`;
+  } catch (e) {
+    return d.toLocaleDateString();
+  }
 }
+
