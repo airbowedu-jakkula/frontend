@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <defs>
+    <linearGradient id="cap-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c2340" />
+      <stop offset="70%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="cap-dome" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+  </defs>
+  <!-- Night Sky -->
+  <rect width="400" height="240" rx="12" fill="url(#cap-sky)" />
+  <!-- Distant Stars -->
+  <circle cx="50" cy="40" r="1.5" fill="#fff" opacity="0.6" />
+  <circle cx="120" cy="25" r="1" fill="#fff" opacity="0.8" />
+  <circle cx="280" cy="35" r="1.5" fill="#fff" opacity="0.6" />
+  <circle cx="350" cy="50" r="1" fill="#fff" opacity="0.7" />
+  <circle cx="90" cy="80" r="1" fill="#fff" opacity="0.5" />
+  <circle cx="320" cy="90" r="1.5" fill="#fff" opacity="0.6" />
+
+  <!-- Capitol Building Illumination Glow -->
+  <circle cx="200" cy="140" r="110" fill="#ffffff" opacity="0.12" />
+
+  <!-- Base Building Wings -->
+  <rect x="30" y="160" width="340" height="65" rx="3" fill="#cbd5e1" />
+  <rect x="25" y="152" width="350" height="10" rx="2" fill="#e2e8f0" />
+  <!-- Wing Columns -->
+  <g fill="#94a3b8">
+    <rect x="45" y="165" width="6" height="50" />
+    <rect x="65" y="165" width="6" height="50" />
+    <rect x="85" y="165" width="6" height="50" />
+    <rect x="105" y="165" width="6" height="50" />
+    <rect x="125" y="165" width="6" height="50" />
+    <rect x="265" y="165" width="6" height="50" />
+    <rect x="285" y="165" width="6" height="50" />
+    <rect x="305" y="165" width="6" height="50" />
+    <rect x="325" y="165" width="6" height="50" />
+    <rect x="345" y="165" width="6" height="50" />
+  </g>
+
+  <!-- Central Portico / Pediment -->
+  <path d="M140 145 L200 115 L260 145 Z" fill="#ffffff" />
+  <rect x="145" y="145" width="110" height="75" fill="#f8fafc" />
+  <!-- Central Columns -->
+  <g fill="#64748b">
+    <rect x="155" y="148" width="7" height="68" />
+    <rect x="173" y="148" width="7" height="68" />
+    <rect x="191" y="148" width="7" height="68" />
+    <rect x="209" y="148" width="7" height="68" />
+    <rect x="227" y="148" width="7" height="68" />
+  </g>
+
+  <!-- Drum Base & Columns -->
+  <rect x="165" y="100" width="70" height="20" fill="#cbd5e1" />
+  <g fill="#475569">
+    <rect x="170" y="100" width="4" height="20" />
+    <rect x="180" y="100" width="4" height="20" />
+    <rect x="190" y="100" width="4" height="20" />
+    <rect x="200" y="100" width="4" height="20" />
+    <rect x="210" y="100" width="4" height="20" />
+    <rect x="220" y="100" width="4" height="20" />
+  </g>
+  <!-- Upper Drum -->
+  <rect x="172" y="80" width="56" height="22" fill="#e2e8f0" />
+  <g fill="#94a3b8">
+    <rect x="176" y="82" width="3" height="18" />
+    <rect x="184" y="82" width="3" height="18" />
+    <rect x="192" y="82" width="3" height="18" />
+    <rect x="200" y="82" width="3" height="18" />
+    <rect x="208" y="82" width="3" height="18" />
+    <rect x="216" y="82" width="3" height="18" />
+  </g>
+
+  <!-- Main Capitol Dome -->
+  <path d="M174 80 C174 42, 226 42, 226 80 Z" fill="url(#cap-dome)" />
+  <!-- Dome Ribs -->
+  <path d="M185 80 C185 50, 195 44, 200 42" stroke="#94a3b8" stroke-width="1.5" fill="none" />
+  <path d="M215 80 C215 50, 205 44, 200 42" stroke="#94a3b8" stroke-width="1.5" fill="none" />
+
+  <!-- Lantern & Statue of Freedom -->
+  <rect x="193" y="32" width="14" height="12" fill="#ffffff" />
+  <path d="M195 32 C195 26, 205 26, 205 32 Z" fill="#cbd5e1" />
+  <!-- Statue of Freedom -->
+  <path d="M198 26 L200 16 L202 26 Z" fill="#ffffff" />
+  <line x1="200" y1="16" x2="200" y2="10" stroke="#ffffff" stroke-width="2" />
+
+  <!-- USA Flag Tag Badge in Bottom Right -->
+  <rect x="250" y="195" width="135" height="30" rx="6" fill="rgba(12, 35, 64, 0.85)" stroke="rgba(255,255,255,0.2)" />
+  <text x="260" y="215" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="800">🏛️ U.S. Capitol</text>
+</svg>
+

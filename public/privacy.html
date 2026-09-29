@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — US Visa Slot Monitor</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f6f7fb;
+      color: #1a2130;
+      font: 16px/1.65 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+    h1 { font-size: 1.9rem; line-height: 1.15; margin: 0 0 6px; }
+    .updated { color: #5a6577; font-size: 0.9rem; margin: 0 0 36px; }
+    h2 { font-size: 1.15rem; margin: 34px 0 8px; }
+    p, li { max-width: 66ch; }
+    ul { padding-left: 20px; }
+    li { margin: 5px 0; }
+    code { background: #e9edf4; border-radius: 4px; padding: 1px 5px; font-size: 0.9em; }
+    a { color: #1e50c8; }
+    .box {
+      background: #fff; border: 1px solid #e2e6ef; border-radius: 10px;
+      padding: 16px 20px; margin: 18px 0;
+    }
+    hr { border: 0; border-top: 1px solid #e2e6ef; margin: 40px 0; }
+    footer { color: #5a6577; font-size: 0.88rem; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0d1220; color: #e7ecf5; }
+      .updated, footer { color: #9aa6bb; }
+      code { background: #1b2437; }
+      .box { background: #141b2b; border-color: #263048; }
+      hr { border-color: #263048; }
+      a { color: #6f9bff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="updated">US Visa Slot Monitor (browser extension) &amp; usvisaslotsupdate.com &nbsp;·&nbsp; Last updated: 2 September 2026</p>
+
+    <p>
+      This policy explains what data the <strong>US Visa Slot Monitor</strong> browser extension and its
+      companion website (<code>usvisaslotsupdate.com</code>) collect, why, and how it is handled. The
+      service is operated by the team that runs this deployment; contact details are at the end.
+    </p>
+
+    <div class="box">
+      <strong>In short:</strong> the extension reads the visa appointment page you already have open,
+      takes a cropped screenshot of the calendar when availability changes, and sends it plus a short
+      text summary to our own backend so your team can see openings on a shared dashboard and Telegram
+      channel. It never signs in, clicks, navigates, or automates the visa portal. Names visible in a
+      screenshot are blurred inside your browser before the image is sent.
+    </div>
+
+    <h2>1. What the extension collects</h2>
+    <ul>
+      <li>
+        <strong>Account details</strong> — the name, email address and password you enter in the
+        extension popup to create or sign in to a team account. The password is sent over HTTPS to our
+        backend, stored only as a one-way hash, and never stored by the extension. After sign-in the
+        extension keeps a session token in your browser's local storage.
+      </li>
+      <li>
+        <strong>Appointment page content</strong> — while monitoring is on, on
+        <code>usvisa-info.com</code> and <code>usvisascheduling.com</code> only, the extension reads
+        the text already rendered on the appointment page (the selected consulate, and whether slots
+        or a calendar are shown) and the URL of that page.
+      </li>
+      <li>
+        <strong>Screenshots</strong> — when availability changes, the extension captures the visible
+        area of the appointment tab and crops it to the calendar / slots region. Applicant and
+        group-member names within that crop are blurred and blacked out in your browser before the
+        image is transmitted.
+      </li>
+      <li>
+        <strong>Settings</strong> — your chosen visa category, the consulates to watch, check
+        interval and alert preferences. Stored in your browser; a copy of category/location is
+        included with each report for routing.
+      </li>
+      <li>
+        <strong>Technical logs</strong> — like any web service, our backend records the IP address and
+        timestamp of requests it receives, for security and abuse prevention.
+      </li>
+    </ul>
+
+    <h2>2. What it does <em>not</em> do</h2>
+    <ul>
+      <li>It does not run on any site other than the two visa appointment domains listed above.</li>
+      <li>It does not read your browsing history, other tabs, bookmarks, cookies or passwords for other sites.</li>
+      <li>It does not log keystrokes, mouse movement or clicks.</li>
+      <li>It does not sign in, submit forms, click buttons, navigate, reload, solve CAPTCHAs, or send any request to the visa portal.</li>
+      <li>It does not use remote code — all logic ships inside the extension package.</li>
+    </ul>
+
+    <h2>3. How the data is used</h2>
+    <p>
+      Solely to operate the service: detecting a change in appointment availability and delivering the
+      screenshot and summary to your team's dashboard (<code>usvisaslotsupdate.com/#/admin</code>) and,
+      if enabled, your team's Telegram channel. Reports are attributed to the account that captured
+      them so your team knows who is watching which consulate.
+    </p>
+
+    <h2>4. Where it is stored and who can see it</h2>
+    <ul>
+      <li>Data is stored in a MongoDB Atlas database controlled by the service operator.</li>
+      <li>
+        Screenshots and summaries are visible to signed-in members of your team on the admin
+        dashboard, and — if Telegram alerts are enabled — to members of the Telegram channel the
+        operator has configured.
+      </li>
+      <li>
+        We do <strong>not</strong> sell or transfer your data to third parties, and we do not use it
+        for advertising, credit scoring, or any purpose unrelated to the service.
+      </li>
+      <li>
+        Third-party processors: MongoDB Atlas (database hosting), Render (backend hosting), Vercel
+        (website hosting), and Telegram (message delivery, only if enabled).
+      </li>
+    </ul>
+
+    <h2>5. Retention</h2>
+    <p>
+      Change events and screenshots are kept until an administrator deletes them from the dashboard.
+      Your account exists until an administrator removes it. You can request deletion of your account
+      and associated data at any time using the contact details below.
+    </p>
+
+    <h2>6. Your choices</h2>
+    <ul>
+      <li>Turn <strong>Monitoring</strong> off in the popup to stop all reading and reporting immediately.</li>
+      <li>Remove the extension to delete all locally stored settings and the session token.</li>
+      <li>Disable <strong>Telegram alerts</strong> in the popup to keep reports on the dashboard only.</li>
+      <li>Contact us to have your account and its data deleted.</li>
+    </ul>
+
+    <h2>7. Children</h2>
+    <p>The service is intended for adults arranging visa appointments and is not directed at children under 13.</p>
+
+    <h2>8. Changes</h2>
+    <p>
+      If this policy changes materially, the "Last updated" date above will change and team
+      administrators will be notified.
+    </p>
+
+    <hr />
+    <footer>
+      <p>
+        <strong>Contact:</strong> <a href="/#/contact">usvisaslotsupdate.com/#/contact</a>
+        &nbsp;·&nbsp; email: jvnpraveen22@gmail.com
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

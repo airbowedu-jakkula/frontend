@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <defs>
+    <linearGradient id="emb-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c2340" />
+      <stop offset="60%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="gold-seal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" rx="12" fill="url(#emb-sky)" />
+
+  <!-- Embassy Facade Background -->
+  <rect x="40" y="60" width="320" height="150" rx="4" fill="#1e293b" opacity="0.6" />
+  <rect x="30" y="50" width="340" height="14" fill="#334155" />
+  <!-- Glass Panels -->
+  <g fill="#38bdf8" opacity="0.35">
+    <rect x="55" y="75" width="40" height="55" rx="2" />
+    <rect x="105" y="75" width="40" height="55" rx="2" />
+    <rect x="255" y="75" width="40" height="55" rx="2" />
+    <rect x="305" y="75" width="40" height="55" rx="2" />
+    <rect x="55" y="140" width="40" height="60" rx="2" />
+    <rect x="105" y="140" width="40" height="60" rx="2" />
+    <rect x="255" y="140" width="40" height="60" rx="2" />
+    <rect x="305" y="140" width="40" height="60" rx="2" />
+  </g>
+
+  <!-- Central Great Seal of the United States Plaque -->
+  <circle cx="200" cy="115" r="48" fill="#0c2340" stroke="url(#gold-seal)" stroke-width="3" />
+  <circle cx="200" cy="115" r="42" fill="none" stroke="rgba(251, 191, 36, 0.4)" stroke-width="1.5" stroke-dasharray="3 3" />
+
+  <!-- Eagle Silhouette Motif in Center -->
+  <!-- Eagle Wings -->
+  <path d="M200 100 L180 88 L170 98 L185 106 L175 116 L195 116 Z" fill="url(#gold-seal)" />
+  <path d="M200 100 L220 88 L230 98 L215 106 L225 116 L205 116 Z" fill="url(#gold-seal)" />
+  <!-- Shield on chest -->
+  <path d="M192 110 L208 110 L205 125 L200 130 L195 125 Z" fill="#b22234" stroke="#ffffff" stroke-width="1.5" />
+  <!-- Eagle Head -->
+  <circle cx="200" cy="94" r="5" fill="#ffffff" />
+  <path d="M200 95 L196 97 L200 98 Z" fill="#fbbf24" />
+  <!-- 13 Stars Arc above head -->
+  <g fill="#fbbf24">
+    <circle cx="188" cy="82" r="1.5" />
+    <circle cx="194" cy="80" r="1.5" />
+    <circle cx="200" cy="79" r="1.5" />
+    <circle cx="206" cy="80" r="1.5" />
+    <circle cx="212" cy="82" r="1.5" />
+  </g>
+
+  <!-- Plaque Label Below -->
+  <rect x="130" y="185" width="140" height="28" rx="6" fill="rgba(12, 35, 64, 0.9)" stroke="url(#gold-seal)" stroke-width="1" />
+  <text x="142" y="204" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="800">🇺🇸 U.S. Consular Post</text>
+</svg>
+

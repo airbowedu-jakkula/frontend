@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OFC Appointment — US Visa Scheduling Test Page</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Segoe UI, system-ui, Arial, sans-serif; background: #f8fafc; color: #1e293b; }
+    .topbar { background: #13294b; height: 26px; }
+    .wrap { max-width: 1180px; margin: 24px auto; padding: 0 20px; }
+    .card {
+      background: #fff;
+      border: 1px solid #dfe3ea; border-radius: 12px; padding: 26px;
+      box-shadow: 0 10px 30px -18px rgba(19,41,75,.4);
+    }
+    #slots-msg {
+      text-align: center; padding: 12px; border-radius: 8px; font-size: 15px; margin-bottom: 22px;
+      background: #fef2f2; color: #991b1b; font-weight: 600; border: 1px solid #fecaca;
+    }
+    #slots-msg.open { background: #ecfdf5; color: #065f46; font-weight: 700; border-color: #a7f3d0; }
+    .panes { display: grid; grid-template-columns: 1fr 1.5fr; gap: 24px; }
+    .pane { border: 1px solid #cdd4df; border-radius: 8px; overflow: hidden; background: #fff; }
+    .pane h2 { background: #1f4e8c; color: #fff; text-align: center; margin: 0; padding: 12px; font-size: 18px; font-weight: 600; }
+    .pane .pane-body { padding: 20px; min-height: 220px; }
+    .members-logo {
+      background: #1f4e8c; color: #fff; font-weight: 800; font-style: italic;
+      border-radius: 8px; padding: 14px 18px; display: inline-block; letter-spacing: .5px;
+      box-shadow: 0 2px 0 #16406f;
+    }
+    .applicant-box { margin-top: 14px; padding: 10px; background: #f1f5f9; border-radius: 6px; font-size: 13px; }
+    label { display: block; font-weight: 700; margin: 10px 0 4px; font-size: 13px; color: #334155; }
+    select {
+      font: inherit; padding: 8px 10px; border: 2px solid #2f6fd6; border-radius: 6px;
+      width: 100%; max-width: 320px; background: #fff; margin-bottom: 12px;
+    }
+    
+    /* Calendar Grid - Dual Month jQuery UI matching live US visa portal */
+    .ui-datepicker { display: flex; gap: 16px; margin-top: 10px; background: #fff; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; width: fit-content; }
+    .ui-datepicker-group { width: 240px; }
+    .ui-datepicker-header { display: flex; align-items: center; justify-content: space-between; background: #e2e8f0; padding: 6px 10px; border-radius: 4px; font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+    .cal-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 12px; }
+    .cal-table th { background: #f8fafc; padding: 4px; color: #475569; font-weight: 600; border: 1px solid #e2e8f0; }
+    .cal-table td { padding: 0; border: 1px solid #fecaca; height: 28px; width: 32px; vertical-align: middle; }
+    .cal-table td.ui-state-disabled { color: #cbd5e1; background: #fff; cursor: not-allowed; }
+    .cal-table td.ui-state-disabled span { display: block; color: #cbd5e1; line-height: 28px; }
+    .cal-table td[data-handler="selectDay"] {
+      border: 2px solid #10b981 !important; background: #fff; font-weight: 700; cursor: pointer;
+    }
+    .cal-table td[data-handler="selectDay"]:hover, .cal-table td.selected, .cal-table td[data-handler="selectDay"].ui-state-active {
+      background: #10b981 !important; color: #fff !important;
+    }
+    .cal-table td[data-handler="selectDay"] a {
+      display: block; text-decoration: none; color: #0f172a; width: 100%; height: 100%; line-height: 26px;
+    }
+    .cal-table td.selected a, .cal-table td.ui-state-active a { color: #fff !important; }
+    
+    .time-sec { margin-top: 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+    .time-slot-btn {
+      padding: 6px 12px; margin: 4px 6px 4px 0; border: 1px solid #2f6fd6; border-radius: 4px;
+      background: #eff6ff; color: #1d4ed8; font-weight: 600; cursor: pointer;
+    }
+    .time-slot-btn.selected { background: #1d4ed8; color: #fff; }
+
+    .foot { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 14px; border-top: 1px solid #e2e8f0; }
+    #server-time { color: #475569; font-size: 14px; font-weight: 500; }
+    button.submit {
+      background: #1e50c8; color: #fff; border: none; border-radius: 6px;
+      padding: 10px 26px; font-size: 15px; font-weight: 700; cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.submit:hover { background: #1740a0; }
+    button.submit:disabled { background: #94a3b8; cursor: not-allowed; }
+
+    .sim {
+      margin: 16px 0; padding: 14px 18px; background: #fff; border: 1px solid #cbd5e1;
+      border-radius: 8px; display: flex; align-items: center; gap: 12px;
+    }
+    .sim button {
+      font: inherit; padding: 8px 14px; font-size: 13px; font-weight: 600;
+      border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc; cursor: pointer;
+    }
+    .sim button.active-yes { background: #10b981; color: #fff; border-color: #059669; }
+    .sim button.active-no { background: #ef4444; color: #fff; border-color: #dc2626; }
+
+    #booking-status {
+      margin-top: 14px; padding: 12px 16px; border-radius: 6px; font-weight: 700;
+      display: none; text-align: center; font-size: 14px;
+    }
+    #booking-status.success { display: block; background: #ecfdf5; color: #065f46; border: 1px solid #10b981; }
+
+    .pagefoot { background: #13294b; color: #fff; text-align: right; padding: 16px 30px; font-size: 13px; margin-top: 40px; }
+    .hint { font-size: 12px; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="topbar"></div>
+  <div class="wrap">
+    <p class="hint">Test appointment page for the US Visa Slot Monitor extension — supports live slot checking, simulated availability, and automated catching/locking.</p>
+
+    <div class="sim">
+      <strong>Simulate Availability:</strong>
+      <button id="btnNo" class="active-no">❌ No Slots Available</button>
+      <button id="btnYes">🟢 Slots Available (Open Calendar)</button>
+    </div>
+
+    <div class="card" id="ofc-card">
+      <div id="slots-msg">No Slots Available</div>
+
+      <div class="panes">
+        <div class="pane">
+          <h2>Group Members</h2>
+          <div class="pane-body">
+            <div class="applicant-box" id="groupMembersList">
+              <div class="applicant-name"><strong>Primary:</strong> Sanaya Hemang Muchhala</div>
+              <div class="member-name"><strong>Member 2:</strong> Rahul Hemang Muchhala</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pane">
+          <h2>Calendar</h2>
+          <div class="pane-body">
+            <label for="appointments_asc_appointment_facility_id">OFC Post</label>
+            <select id="appointments_asc_appointment_facility_id" name="appointments[asc_appointment][facility_id]">
+              <option>CHENNAI VAC</option>
+              <option>HYDERABAD VAC</option>
+              <option>KOLKATA VAC</option>
+              <option>MUMBAI VAC</option>
+              <option>NEW DELHI VAC</option>
+              <option>BENGALURU VAC</option>
+            </select>
+
+            <label>Date (MM/DD/YYYY)</label>
+            <div id="calendar-view">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div class="time-sec" id="timeSec" style="display:none;">
+              <label for="time_slot">Available Time Slot</label>
+              <select id="time_slot" name="appointments[asc_appointment][time]">
+                <option value="">-- Select Time Slot --</option>
+                <option value="08:30">08:30 AM (12 open)</option>
+                <option value="09:15">09:15 AM (8 open)</option>
+                <option value="10:30">10:30 AM (15 open)</option>
+                <option value="11:45">11:45 AM (5 open)</option>
+                <option value="14:00">02:00 PM (10 open)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="booking-status"></div>
+
+      <div class="foot">
+        <span id="server-time">Aug 30, 2026 02:35 PM IST</span>
+        <button class="submit" id="appointments_submit">Submit Appointment</button>
+      </div>
+    </div>
+  </div>
+  <div class="pagefoot">© 2026. CGI Federal Inc. / US Visa Scheduling Portal</div>
+
+  <script>
+    const msg = document.getElementById("slots-msg");
+    const time = document.getElementById("server-time");
+    const calBody = document.getElementById("calBody");
+    const timeSec = document.getElementById("timeSec");
+    const timeSelect = document.getElementById("time_slot");
+    const calView = document.getElementById("calendar-view");
+    const btnSubmit = document.getElementById("appointments_submit");
+    const bookingStatus = document.getElementById("booking-status");
+
+    let isAvailable = false;
+    let selectedDate = "";
+
+    function tick() {
+      const d = new Date();
+      const opt = { month: "short", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true };
+      time.textContent = d.toLocaleString("en-US", opt).replace(",", "") + " IST";
+    }
+    setInterval(tick, 1000); tick();
+
+    function renderCalendar(available) {
+      bookingStatus.className = "";
+      bookingStatus.style.display = "none";
+
+      if (!available) {
+        calView.innerHTML = `
+          <div style="padding: 16px; text-align: center; color: #94a3b8; font-size: 13px; font-weight: 500; border: 1px dashed #cbd5e1; border-radius: 8px;">
+            No calendar dates rendered (Slots unavailable)
+          </div>
+        `;
+        return;
+      }
+
+      // Render authentic Dual-Month jQuery UI Datepicker (Sep 2026 + Oct 2026) matching portal screenshot
+      calView.innerHTML = `
+        <div class="ui-datepicker">
+          <!-- Month 1: September 2026 (All Disabled) -->
+          <div class="ui-datepicker-group ui-datepicker-group-first">
+            <div class="ui-datepicker-header">
+              <span>Sep 2026</span>
+            </div>
+            <table class="cal-table ui-datepicker-calendar">
+              <thead>
+                <tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span>1</span></td>
+                  <td class="ui-state-disabled"><span>2</span></td>
+                  <td class="ui-state-disabled"><span>3</span></td>
+                  <td class="ui-state-disabled"><span>4</span></td>
+                  <td class="ui-state-disabled"><span>5</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>6</span></td>
+                  <td class="ui-state-disabled"><span>7</span></td>
+                  <td class="ui-state-disabled"><span>8</span></td>
+                  <td class="ui-state-disabled"><span>9</span></td>
+                  <td class="ui-state-disabled"><span>10</span></td>
+                  <td class="ui-state-disabled"><span>11</span></td>
+                  <td class="ui-state-disabled"><span>12</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>13</span></td>
+                  <td class="ui-state-disabled"><span>14</span></td>
+                  <td class="ui-state-disabled"><span>15</span></td>
+                  <td class="ui-state-disabled"><span>16</span></td>
+                  <td class="ui-state-disabled"><span>17</span></td>
+                  <td class="ui-state-disabled"><span>18</span></td>
+                  <td class="ui-state-disabled"><span>19</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>20</span></td>
+                  <td class="ui-state-disabled"><span>21</span></td>
+                  <td class="ui-state-disabled"><span>22</span></td>
+                  <td class="ui-state-disabled"><span>23</span></td>
+                  <td class="ui-state-disabled"><span>24</span></td>
+                  <td class="ui-state-disabled"><span>25</span></td>
+                  <td class="ui-state-disabled"><span>26</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>27</span></td>
+                  <td class="ui-state-disabled"><span>28</span></td>
+                  <td class="ui-state-disabled"><span>29</span></td>
+                  <td class="ui-state-disabled"><span>30</span></td>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Month 2: October 2026 (Green Open Days: 5, 6, 7, 8, 9, 13, 15, 16...) -->
+          <div class="ui-datepicker-group ui-datepicker-group-last">
+            <div class="ui-datepicker-header">
+              <span>October 2026</span>
+            </div>
+            <table class="cal-table ui-datepicker-calendar">
+              <thead>
+                <tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span></span></td>
+                  <td class="ui-state-disabled"><span>1</span></td>
+                  <td class="ui-state-disabled"><span>2</span></td>
+                  <td class="ui-state-disabled"><span>3</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>4</span></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/05/2026"><a class="ui-state-default" href="javascript:void(0)">5</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/06/2026"><a class="ui-state-default" href="javascript:void(0)">6</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/07/2026"><a class="ui-state-default" href="javascript:void(0)">7</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/08/2026"><a class="ui-state-default" href="javascript:void(0)">8</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/09/2026"><a class="ui-state-default" href="javascript:void(0)">9</a></td>
+                  <td class="ui-state-disabled"><span>10</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>11</span></td>
+                  <td class="ui-state-disabled"><span>12</span></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/13/2026"><a class="ui-state-default" href="javascript:void(0)">13</a></td>
+                  <td class="ui-state-disabled"><span>14</span></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/15/2026"><a class="ui-state-default" href="javascript:void(0)">15</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/16/2026"><a class="ui-state-default" href="javascript:void(0)">16</a></td>
+                  <td class="ui-state-disabled"><span>17</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>18</span></td>
+                  <td class="ui-state-disabled"><span>19</span></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/20/2026"><a class="ui-state-default" href="javascript:void(0)">20</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/21/2026"><a class="ui-state-default" href="javascript:void(0)">21</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/22/2026"><a class="ui-state-default" href="javascript:void(0)">22</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/23/2026"><a class="ui-state-default" href="javascript:void(0)">23</a></td>
+                  <td class="ui-state-disabled"><span>24</span></td>
+                </tr>
+                <tr>
+                  <td class="ui-state-disabled"><span>25</span></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/26/2026"><a class="ui-state-default" href="javascript:void(0)">26</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/27/2026"><a class="ui-state-default" href="javascript:void(0)">27</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/28/2026"><a class="ui-state-default" href="javascript:void(0)">28</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/29/2026"><a class="ui-state-default" href="javascript:void(0)">29</a></td>
+                  <td class="available-day" data-handler="selectDay" data-event="click" data-month="9" data-year="2026" data-date="10/30/2026"><a class="ui-state-default" href="javascript:void(0)">30</a></td>
+                  <td class="ui-state-disabled"><span>31</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+
+      // Attach click listeners to available days
+      calView.querySelectorAll("td[data-handler='selectDay']").forEach((td) => {
+        td.addEventListener("click", () => {
+          calView.querySelectorAll("td[data-handler='selectDay']").forEach((el) => {
+            el.classList.remove("selected", "ui-state-active");
+            const a = el.querySelector("a");
+            if (a) a.classList.remove("ui-state-active");
+          });
+          td.classList.add("selected", "ui-state-active");
+          const a = td.querySelector("a");
+          if (a) a.classList.add("ui-state-active");
+          selectedDate = td.getAttribute("data-date") || "10/05/2026";
+          timeSec.style.display = "block";
+          console.log("[TestPortal] Date selected:", selectedDate);
+        });
+      });
+    }
+
+    renderCalendar(false);
+
+    document.getElementById("btnNo").addEventListener("click", () => {
+      isAvailable = false;
+      msg.textContent = "No Slots Available";
+      msg.className = "";
+      timeSec.style.display = "none";
+      document.getElementById("btnNo").className = "active-no";
+      document.getElementById("btnYes").className = "";
+      renderCalendar(false);
+    });
+
+    document.getElementById("btnYes").addEventListener("click", () => {
+      isAvailable = true;
+      msg.textContent = "Slots Available — Earliest: 10/05/2026";
+      msg.className = "open";
+      document.getElementById("btnYes").className = "active-yes";
+      document.getElementById("btnNo").className = "";
+      renderCalendar(true);
+    });
+
+    document.getElementById("appointments_asc_appointment_facility_id").addEventListener("change", (e) => {
+      const loc = e.target.value;
+      console.log("[TestPortal] OFC Post changed to:", loc);
+      
+      // Simulate live portal AJAX loading
+      msg.style.display = "none";
+      calView.innerHTML = '<div style="padding: 14px 0; text-align: left; color: #1e293b; font-size: 13px;">Loading...</div>';
+      timeSec.style.display = "none";
+
+      setTimeout(() => {
+        msg.style.display = "block";
+        renderCalendar(isAvailable);
+      }, 1500);
+    });
+
+    btnSubmit.addEventListener("click", () => {
+      const loc = document.getElementById("appointments_asc_appointment_facility_id").value;
+      const tVal = timeSelect.value || "08:30 AM";
+      const dVal = selectedDate || "10/14/2026";
+      bookingStatus.textContent = `🎉 APPOINTMENT LOCKED & SUBMITTED: ${dVal} at ${tVal} (${loc})`;
+      bookingStatus.className = "success";
+      bookingStatus.style.display = "block";
+      console.log("[TestPortal] Appointment submitted successfully:", { loc, dVal, tVal });
+    });
+  </script>
+</body>
+</html>

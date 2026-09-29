@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
+  <defs>
+    <linearGradient id="libNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071b30"/>
+      <stop offset="50%" stop-color="#0c2340"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+
+    <linearGradient id="libGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+
+    <linearGradient id="torchFlame" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="40%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>
+
+    <linearGradient id="libRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#b22234"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer USA Shield -->
+  <path d="M 20 20 L 120 20 L 120 74 C 120 106 80 128 70 134 C 60 128 20 106 20 74 Z" fill="url(#libNavy)" stroke="url(#libGold)" stroke-width="3.5"/>
+  
+  <!-- Inner White Border Line -->
+  <path d="M 26 26 L 114 26 L 114 74 C 114 100 80 120 70 126 C 60 120 26 100 26 74 Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+  <!-- USA Flag Stripes across Bottom of Shield -->
+  <!-- Red Stripe 1 -->
+  <rect x="36" y="70" width="10" height="42" fill="url(#libRed)"/>
+  <!-- White Stripe 2 -->
+  <rect x="46" y="70" width="10" height="47" fill="#ffffff"/>
+  <!-- Red Stripe 3 -->
+  <rect x="56" y="70" width="10" height="52" fill="url(#libRed)"/>
+  <!-- White Stripe 4 (Center) -->
+  <rect x="66" y="70" width="8" height="56" fill="#ffffff"/>
+  <!-- Red Stripe 5 -->
+  <rect x="74" y="70" width="10" height="52" fill="url(#libRed)"/>
+  <!-- White Stripe 6 -->
+  <rect x="84" y="70" width="10" height="47" fill="#ffffff"/>
+  <!-- Red Stripe 7 -->
+  <rect x="94" y="70" width="10" height="42" fill="url(#libRed)"/>
+
+  <!-- Top 50-Stars Field Motif (Arc of Stars) -->
+  <g fill="url(#libGold)">
+    <polygon points="70,32 71.5,36.5 76,36.5 72.5,39.5 74,44 70,41 66,44 67.5,39.5 64,36.5 68.5,36.5" transform="scale(0.8) translate(18, 5)"/>
+    <polygon points="50,36 51.5,40.5 56,40.5 52.5,43.5 54,48 50,45 46,48 47.5,43.5 44,40.5 48.5,40.5" transform="scale(0.7) translate(22, 12)"/>
+    <polygon points="90,36 91.5,40.5 96,40.5 92.5,43.5 94,48 90,45 86,48 87.5,43.5 84,40.5 88.5,40.5" transform="scale(0.7) translate(38, 12)"/>
+  </g>
+
+  <!-- ================= STATUE OF LIBERTY TORCH (CENTER) ================= -->
+  <!-- Torch Blazing Golden Flame -->
+  <path d="M 70 30 C 62 42 66 52 70 58 C 74 52 78 42 70 30 Z" fill="url(#torchFlame)"/>
+  <path d="M 70 34 C 66 42 68 48 70 52 C 72 48 74 42 70 34 Z" fill="#ffffff" opacity="0.9"/>
+  <!-- Torch Cup / Golden Filigree -->
+  <path d="M 62 58 L 78 58 L 75 68 L 65 68 Z" fill="url(#libGold)"/>
+  <rect x="66" y="68" width="8" height="18" fill="url(#libGold)"/>
+
+  <!-- ================= VISA APPOINTMENT RADAR CHECKMARK ================= -->
+  <circle cx="70" cy="88" r="18" fill="#071b30" stroke="url(#libGold)" stroke-width="2.5"/>
+  <path d="M 62 88 L 68 94 L 78 82" fill="none" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+

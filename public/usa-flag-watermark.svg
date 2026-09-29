@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="flag-fade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#fff" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#fff" stop-opacity="0.05" />
+    </linearGradient>
+    <mask id="flag-mask">
+      <rect width="800" height="600" fill="url(#flag-fade)" />
+    </mask>
+  </defs>
+
+  <g mask="url(#flag-mask)" opacity="0.08">
+    <!-- 13 Red and White Stripes with Gentle Wave Curves -->
+    <path d="M0 0 C200 40, 400 -20, 800 30 L800 76 C400 26, 200 86, 0 46 Z" fill="#b22234" />
+    <path d="M0 46 C200 86, 400 26, 800 76 L800 122 C400 72, 200 132, 0 92 Z" fill="#ffffff" />
+    <path d="M0 92 C200 132, 400 72, 800 122 L800 168 C400 118, 200 178, 0 138 Z" fill="#b22234" />
+    <path d="M0 138 C200 178, 400 118, 800 168 L800 214 C400 164, 200 224, 0 184 Z" fill="#ffffff" />
+    <path d="M0 184 C200 224, 400 164, 800 214 L800 260 C400 210, 200 270, 0 230 Z" fill="#b22234" />
+    <path d="M0 230 C200 270, 400 210, 800 260 L800 306 C400 256, 200 316, 0 276 Z" fill="#ffffff" />
+    <path d="M0 276 C200 316, 400 256, 800 306 L800 352 C400 302, 200 362, 0 322 Z" fill="#b22234" />
+    <path d="M0 322 C200 362, 400 302, 800 352 L800 398 C400 348, 200 408, 0 368 Z" fill="#ffffff" />
+    <path d="M0 368 C200 408, 400 348, 800 398 L800 444 C400 394, 200 454, 0 414 Z" fill="#b22234" />
+    <path d="M0 414 C200 454, 400 394, 800 444 L800 490 C400 440, 200 500, 0 460 Z" fill="#ffffff" />
+    <path d="M0 460 C200 500, 400 440, 800 490 L800 536 C400 486, 200 546, 0 506 Z" fill="#b22234" />
+    <path d="M0 506 C200 546, 400 486, 800 536 L800 582 C400 532, 200 592, 0 552 Z" fill="#ffffff" />
+    <path d="M0 552 C200 592, 400 532, 800 582 L800 600 L0 600 Z" fill="#b22234" />
+
+    <!-- Blue Canton -->
+    <path d="M0 0 C150 25, 250 -10, 360 15 L360 338 C250 313, 150 348, 0 323 Z" fill="#3c3b6e" />
+
+    <!-- Canton Star Clusters -->
+    <g fill="#ffffff">
+      <circle cx="30" cy="30" r="6" />
+      <circle cx="90" cy="35" r="6" />
+      <circle cx="150" cy="40" r="6" />
+      <circle cx="210" cy="35" r="6" />
+      <circle cx="270" cy="40" r="6" />
+      <circle cx="330" cy="45" r="6" />
+
+      <circle cx="60" cy="75" r="6" />
+      <circle cx="120" cy="80" r="6" />
+      <circle cx="180" cy="85" r="6" />
+      <circle cx="240" cy="80" r="6" />
+      <circle cx="300" cy="85" r="6" />
+
+      <circle cx="30" cy="120" r="6" />
+      <circle cx="90" cy="125" r="6" />
+      <circle cx="150" cy="130" r="6" />
+      <circle cx="210" cy="125" r="6" />
+      <circle cx="270" cy="130" r="6" />
+      <circle cx="330" cy="135" r="6" />
+
+      <circle cx="60" cy="165" r="6" />
+      <circle cx="120" cy="170" r="6" />
+      <circle cx="180" cy="175" r="6" />
+      <circle cx="240" cy="170" r="6" />
+      <circle cx="300" cy="175" r="6" />
+
+      <circle cx="30" cy="210" r="6" />
+      <circle cx="90" cy="215" r="6" />
+      <circle cx="150" cy="220" r="6" />
+      <circle cx="210" cy="215" r="6" />
+      <circle cx="270" cy="220" r="6" />
+      <circle cx="330" cy="225" r="6" />
+
+      <circle cx="60" cy="255" r="6" />
+      <circle cx="120" cy="260" r="6" />
+      <circle cx="180" cy="265" r="6" />
+      <circle cx="240" cy="260" r="6" />
+      <circle cx="300" cy="265" r="6" />
+    </g>
+  </g>
+</svg>
+

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 640" fill="none">
+  <defs>
+    <linearGradient id="liberty-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.25" />
+      <stop offset="40%" stop-color="#0c2340" stop-opacity="0.18" />
+      <stop offset="85%" stop-color="#0c2340" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0c2340" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="torch-flare" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#b22234" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Torch Ambient Halo Glow -->
+  <circle cx="215" cy="90" r="65" fill="url(#torch-flare)" />
+  <circle cx="215" cy="90" r="30" fill="#fef08a" opacity="0.3" />
+
+  <!-- Main Statue Figure & Pedestal (Fill with Liberty Gradient) -->
+  <g fill="url(#liberty-grad)" stroke="#0c2340" stroke-opacity="0.12" stroke-width="1.2">
+    <!-- Star-shaped Fort Wood / Ground Base -->
+    <path d="M40 640 L60 560 L240 560 L260 640 Z" />
+    
+    <!-- Pedestal Lower Tier -->
+    <rect x="75" y="500" width="150" height="60" rx="3" />
+    <rect x="65" y="490" width="170" height="10" rx="2" />
+    
+    <!-- Pedestal Columns / Mid Section -->
+    <rect x="85" y="410" width="130" height="80" rx="2" />
+    <rect x="75" y="400" width="150" height="10" rx="2" />
+    <!-- Pedestal column lines -->
+    <line x1="105" y1="415" x2="105" y2="485" stroke="#0c2340" stroke-opacity="0.2" stroke-width="2" />
+    <line x1="125" y1="415" x2="125" y2="485" stroke="#0c2340" stroke-opacity="0.2" stroke-width="2" />
+    <line x1="150" y1="415" x2="150" y2="485" stroke="#0c2340" stroke-opacity="0.2" stroke-width="2" />
+    <line x1="175" y1="415" x2="175" y2="485" stroke="#0c2340" stroke-opacity="0.2" stroke-width="2" />
+    <line x1="195" y1="415" x2="195" y2="485" stroke="#0c2340" stroke-opacity="0.2" stroke-width="2" />
+
+    <!-- Pedestal Top Cornice -->
+    <rect x="90" y="385" width="120" height="15" rx="2" />
+
+    <!-- Robe / Body (Draped Chiton & Himation) -->
+    <path d="M95 385 L105 240 L195 240 L205 385 Z" />
+    <!-- Vertical Fabric Drapes -->
+    <path d="M120 250 L115 380 M140 250 L135 380 M160 250 L160 380 M180 250 L185 380" stroke="#0c2340" stroke-opacity="0.2" stroke-width="2" fill="none" />
+
+    <!-- Torso -->
+    <path d="M110 240 L120 170 L180 170 L190 240 Z" />
+
+    <!-- Left Arm Holding Tabula Ansata (Tablet) -->
+    <path d="M115 180 L88 235 L120 245 L135 190 Z" />
+    <!-- Tablet (JULY IV MDCCLXXVI) -->
+    <rect x="80" y="215" width="28" height="42" rx="2" transform="rotate(-15 80 215)" />
+
+    <!-- Right Shoulder & Raised Arm -->
+    <path d="M175 180 L212 98 L200 92 L165 170 Z" />
+    <!-- Forearm extending straight up -->
+    <path d="M200 92 L215 50 L226 55 L212 98 Z" />
+
+    <!-- Hand & Torch Handle -->
+    <rect x="210" y="35" width="14" height="20" rx="2" />
+    <path d="M205 35 L229 35 L224 22 L210 22 Z" />
+    <!-- Torch Balcony & Flame -->
+    <path d="M207 22 C207 2, 227 2, 227 22 Z" fill="#f59e0b" fill-opacity="0.8" stroke="#d97706" stroke-width="1.5" />
+
+    <!-- Neck & Head -->
+    <rect x="144" y="152" width="12" height="20" />
+    <ellipse cx="150" cy="142" rx="14" ry="16" />
+
+    <!-- Crown Diadem & 7 Rays of the Sun -->
+    <path d="M136 134 Q 150 128 164 134 L162 138 Q 150 132 138 138 Z" fill="#0c2340" fill-opacity="0.4" />
+    <!-- 7 Radiant Spikes -->
+    <line x1="130" y1="130" x2="114" y2="124" stroke="#0c2340" stroke-opacity="0.4" stroke-width="3" stroke-linecap="round" />
+    <line x1="135" y1="124" x2="124" y2="110" stroke="#0c2340" stroke-width="3" stroke-opacity="0.4" stroke-linecap="round" />
+    <line x1="142" y1="120" x2="136" y2="100" stroke="#0c2340" stroke-width="3" stroke-opacity="0.4" stroke-linecap="round" />
+    <line x1="150" y1="118" x2="150" y2="94" stroke="#0c2340" stroke-width="3.5" stroke-opacity="0.4" stroke-linecap="round" />
+    <line x1="158" y1="120" x2="164" y2="100" stroke="#0c2340" stroke-width="3" stroke-opacity="0.4" stroke-linecap="round" />
+    <line x1="165" y1="124" x2="176" y2="110" stroke="#0c2340" stroke-width="3" stroke-opacity="0.4" stroke-linecap="round" />
+    <line x1="170" y1="130" x2="186" y2="124" stroke="#0c2340" stroke-width="3" stroke-opacity="0.4" stroke-linecap="round" />
+  </g>
+</svg>
+

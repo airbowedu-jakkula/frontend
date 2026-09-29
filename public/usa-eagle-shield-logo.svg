@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
+  <defs>
+    <!-- USA Navy Gradient -->
+    <linearGradient id="usaNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071b30"/>
+      <stop offset="50%" stop-color="#0c2340"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+
+    <!-- USA Scarlet Red Gradient -->
+    <linearGradient id="usaScarlet" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#b22234"/>
+    </linearGradient>
+
+    <!-- Gold Accent Gradient -->
+    <linearGradient id="usaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+
+    <!-- Eagle Feathers Gradient -->
+    <linearGradient id="eagleWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+
+    <filter id="usaShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0c2340" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Protective Circular Ring with Gold Border -->
+  <circle cx="70" cy="70" r="66" fill="url(#usaNavy)" stroke="url(#usaGold)" stroke-width="3" filter="url(#usaShadow)"/>
+  <circle cx="70" cy="70" r="61" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- ================= AMERICAN BALD EAGLE OUTSTRETCHED WINGS ================= -->
+  <!-- Left Wing -->
+  <path d="M 70 36 C 50 18 24 24 16 38 C 22 46 32 50 40 54 C 30 58 22 66 18 76 C 26 78 36 76 44 72 C 34 82 30 92 32 102 C 44 94 54 84 62 72 Z" fill="url(#eagleWing)" opacity="0.95"/>
+  <!-- Right Wing -->
+  <path d="M 70 36 C 90 18 116 24 124 38 C 118 46 108 50 100 54 C 110 58 118 66 122 76 C 114 78 104 76 96 72 C 106 82 110 92 108 102 C 96 94 86 84 78 72 Z" fill="url(#eagleWing)" opacity="0.95"/>
+
+  <!-- Eagle Golden Beak & Majestic Head -->
+  <path d="M 70 20 C 63 20 58 25 58 32 C 58 38 64 42 70 42 C 76 42 82 38 82 32 C 82 25 77 20 70 20 Z" fill="#ffffff"/>
+  <!-- Eagle Golden Beak Hook -->
+  <path d="M 67 30 L 73 30 L 76 36 L 70 40 L 67 36 Z" fill="url(#usaGold)"/>
+  <circle cx="65" cy="27" r="1.5" fill="#0c2340"/>
+
+  <!-- ================= AUTHENTIC USA PATRIOTIC SHIELD ================= -->
+  <!-- Shield Base Contour -->
+  <path d="M 46 48 L 94 48 C 94 74 82 98 70 110 C 58 98 46 74 46 48 Z" fill="#ffffff" stroke="url(#usaGold)" stroke-width="2.5" filter="url(#usaShadow)"/>
+  
+  <!-- Red & White Vertical Stripes (7 stripes) -->
+  <!-- Stripe 1 (Red) -->
+  <path d="M 47 62 L 53 62 C 53 78 57 88 60 96 L 54 90 C 49 78 47 68 47 62 Z" fill="url(#usaScarlet)"/>
+  <!-- Stripe 2 (White is base) -->
+  <!-- Stripe 3 (Red) -->
+  <rect x="57" y="62" width="6" height="38" fill="url(#usaScarlet)"/>
+  <!-- Stripe 4 (White is base) -->
+  <!-- Stripe 5 (Red) -->
+  <rect x="67" y="62" width="6" height="46" fill="url(#usaScarlet)"/>
+  <!-- Stripe 6 (White is base) -->
+  <!-- Stripe 7 (Red) -->
+  <rect x="77" y="62" width="6" height="38" fill="url(#usaScarlet)"/>
+  <!-- Stripe 8 (Red right edge) -->
+  <path d="M 93 62 L 87 62 C 87 78 83 88 80 96 L 86 90 C 91 78 93 68 93 62 Z" fill="url(#usaScarlet)"/>
+
+  <!-- Shield Blue Chief (Top Star Field) -->
+  <path d="M 46 48 L 94 48 L 94 64 L 46 64 Z" fill="url(#usaNavy)"/>
+  
+  <!-- 5 White Stars in Blue Field -->
+  <g fill="#ffffff" transform="translate(48, 50)">
+    <polygon points="6,2 7,4.5 9.5,4.5 7.5,6 8.5,8.5 6,7 3.5,8.5 4.5,6 2.5,4.5 5,4.5" transform="scale(0.8) translate(1,1)"/>
+    <polygon points="6,2 7,4.5 9.5,4.5 7.5,6 8.5,8.5 6,7 3.5,8.5 4.5,6 2.5,4.5 5,4.5" transform="scale(0.8) translate(13,1)"/>
+    <polygon points="6,2 7,4.5 9.5,4.5 7.5,6 8.5,8.5 6,7 3.5,8.5 4.5,6 2.5,4.5 5,4.5" transform="scale(0.8) translate(25,1)"/>
+    <polygon points="6,2 7,4.5 9.5,4.5 7.5,6 8.5,8.5 6,7 3.5,8.5 4.5,6 2.5,4.5 5,4.5" transform="scale(0.8) translate(37,1)"/>
+    <polygon points="6,2 7,4.5 9.5,4.5 7.5,6 8.5,8.5 6,7 3.5,8.5 4.5,6 2.5,4.5 5,4.5" transform="scale(0.8) translate(49,1)"/>
+  </g>
+
+  <!-- ================= CENTER VISA APPOINTMENT RADAR / CHECKMARK ================= -->
+  <!-- Center Golden Appointment Badge -->
+  <circle cx="70" cy="80" r="16" fill="#071b30" stroke="url(#usaGold)" stroke-width="2"/>
+  <!-- Calendar Grid Top -->
+  <rect x="60" y="70" width="20" height="4" rx="1.5" fill="#dc2626"/>
+  <!-- Vibrant Live Green Checkmark -->
+  <path d="M 63 80 L 68 85 L 77 74" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Outer Star Accents -->
+  <polygon points="70,6 72,11 77,11 73,14 75,19 70,16 65,19 67,14 63,11 68,11" fill="url(#usaGold)"/>
+  <polygon points="18,70 20,74 24,74 21,76.5 22.5,80.5 18,78 13.5,80.5 15,76.5 12,74 16,74" fill="url(#usaGold)"/>
+  <polygon points="122,70 124,74 128,74 125,76.5 126.5,80.5 122,78 117.5,80.5 119,76.5 116,74 120,74" fill="url(#usaGold)"/>
+</svg>
+

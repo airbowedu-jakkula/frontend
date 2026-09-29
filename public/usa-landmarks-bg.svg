@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 400" fill="none" preserveAspectRatio="none">
+  <!-- Subtle Glowing Stars in the Sky -->
+  <g opacity="0.35" fill="currentColor">
+    <path d="M120 40 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" />
+    <path d="M280 25 l1.5 4 4 1.5 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1.5 z" />
+    <path d="M450 60 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" />
+    <path d="M620 30 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" />
+    <path d="M780 45 l1.5 4 4 1.5 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1.5 z" />
+    <path d="M940 20 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 z" />
+    <path d="M1100 55 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" />
+    <path d="M1260 35 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" />
+    <path d="M1380 50 l1.5 4 4 1.5 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1.5 z" />
+  </g>
+
+  <!-- Far Background Skyline (Light silhouette) -->
+  <path d="M0 400 L0 310 L45 310 L45 280 L70 280 L70 310 L110 310 L110 240 L135 240 L135 210 L145 210 L145 180 L150 140 L155 180 L155 210 L165 210 L165 240 L190 240 L190 310 L260 310 L260 260 L295 260 L295 310 L340 310 L340 220 L360 220 L360 170 L370 170 L370 140 L375 110 L380 140 L380 170 L390 170 L390 220 L410 220 L410 310 L520 310 L520 250 L560 250 L560 310 L680 310 L680 270 L710 270 L710 310 L840 310 L840 230 L870 230 L870 190 L885 190 L890 140 L895 190 L910 190 L910 230 L940 230 L940 310 L1020 310 L1020 260 L1060 260 L1060 310 L1180 310 L1180 210 L1210 210 L1210 160 L1220 160 L1225 120 L1230 160 L1240 160 L1240 210 L1270 210 L1270 310 L1360 310 L1360 260 L1400 260 L1400 310 L1440 310 L1440 400 Z" fill="currentColor" opacity="0.04" />
+
+  <!-- Iconic USA Landmarks: Statue of Liberty (Left), US Capitol Dome (Center), Golden Gate Bridge (Right) -->
+  <g fill="currentColor" opacity="0.075">
+    <!-- Statue of Liberty Silhouette on Left (x: 60 to 140) -->
+    <!-- Base / Pedestal -->
+    <path d="M50 400 L55 350 L115 350 L120 400 Z" />
+    <path d="M62 350 L65 310 L105 310 L108 350 Z" />
+    <path d="M70 310 L72 270 L98 270 L100 310 Z" />
+    <!-- Robe / Body -->
+    <path d="M73 270 L76 180 L94 180 L97 270 Z" />
+    <!-- Head & Crown Spikes -->
+    <circle cx="85" cy="165" r="8" />
+    <path d="M78 160 L85 145 L92 160 Z" />
+    <path d="M73 162 L80 152 L83 164 Z" />
+    <path d="M87 164 L90 152 L97 162 Z" />
+    <path d="M69 166 L77 159 Z" stroke="currentColor" stroke-width="2" />
+    <path d="M93 159 L101 166 Z" stroke="currentColor" stroke-width="2" />
+    <!-- Raised Right Arm with Torch -->
+    <path d="M92 185 L108 140 L104 138 L88 180 Z" />
+    <path d="M104 138 L112 115 L108 113 L100 136 Z" />
+    <!-- Torch Flame -->
+    <path d="M107 113 L114 100 L118 108 L116 114 Z" />
+    <!-- Left Arm with Tablet -->
+    <path d="M75 190 L68 215 L78 220 L84 195 Z" />
+    <rect x="66" y="210" width="8" height="12" rx="1" transform="rotate(-15 66 210)" />
+
+    <!-- US Capitol Dome Silhouette in Center (x: 600 to 760) -->
+    <!-- Lower Base Structure with Columns -->
+    <rect x="580" y="320" width="200" height="80" />
+    <rect x="610" y="280" width="140" height="40" />
+    <!-- Column details -->
+    <rect x="620" y="250" width="120" height="30" />
+    <!-- Rotunda Drum / Columns -->
+    <rect x="635" y="210" width="90" height="40" rx="2" />
+    <!-- Main Dome -->
+    <path d="M640 210 C640 160, 720 160, 720 210 Z" />
+    <!-- Upper Lantern / Tholos -->
+    <rect x="668" y="145" width="24" height="20" />
+    <!-- Small Top Dome -->
+    <path d="M672 145 C672 135, 688 135, 688 145 Z" />
+    <!-- Statue of Freedom on top -->
+    <path d="M679 135 L681 120 L683 135 Z" />
+    <!-- Spire tip -->
+    <line x1="680" y1="120" x2="680" y2="108" stroke="currentColor" stroke-width="2" />
+
+    <!-- Golden Gate Bridge on Right (x: 1080 to 1380) -->
+    <!-- Tower 1 -->
+    <rect x="1120" y="130" width="14" height="270" />
+    <rect x="1144" y="130" width="14" height="270" />
+    <rect x="1116" y="160" width="46" height="10" />
+    <rect x="1116" y="210" width="46" height="10" />
+    <rect x="1116" y="260" width="46" height="10" />
+    <rect x="1116" y="310" width="46" height="10" />
+    <!-- Tower 2 -->
+    <rect x="1320" y="130" width="14" height="270" />
+    <rect x="1344" y="130" width="14" height="270" />
+    <rect x="1316" y="160" width="46" height="10" />
+    <rect x="1316" y="210" width="46" height="10" />
+    <rect x="1316" y="260" width="46" height="10" />
+    <rect x="1316" y="310" width="46" height="10" />
+    <!-- Bridge Roadway -->
+    <rect x="1000" y="315" width="440" height="10" />
+    <!-- Suspension Main Cables (Catenary curves) -->
+    <path d="M1020 280 Q 1070 305 1127 135 Q 1239 310 1327 135 Q 1385 305 1440 280" fill="none" stroke="currentColor" stroke-width="4" />
+    <!-- Vertical Suspension Ropes -->
+    <line x1="1170" y1="210" x2="1170" y2="315" stroke="currentColor" stroke-width="1.5" />
+    <line x1="1200" y1="260" x2="1200" y2="315" stroke="currentColor" stroke-width="1.5" />
+    <line x1="1239" y1="300" x2="1239" y2="315" stroke="currentColor" stroke-width="1.5" />
+    <line x1="1280" y1="260" x2="1280" y2="315" stroke="currentColor" stroke-width="1.5" />
+  </g>
+</svg>
+

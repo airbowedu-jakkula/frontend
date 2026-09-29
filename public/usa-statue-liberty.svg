@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <defs>
+    <linearGradient id="ny-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c2340" />
+      <stop offset="60%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="torch-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" rx="12" fill="url(#ny-sky)" />
+
+  <!-- Moon / Torch Ambient Radiance -->
+  <circle cx="270" cy="50" r="70" fill="#fef08a" opacity="0.18" />
+
+  <!-- Distant NYC Harbor Skyline -->
+  <path d="M0 240 L0 190 L30 190 L30 160 L45 160 L45 190 L70 190 L70 145 L85 145 L85 190 L120 190 L120 165 L140 165 L140 190 L180 190 L180 135 L195 135 L195 110 L200 85 L205 110 L205 135 L220 135 L220 190 L300 190 L300 155 L320 155 L320 190 L400 190 L400 240 Z" fill="#0c192c" opacity="0.4" />
+
+  <!-- Harbor Water -->
+  <rect x="0" y="200" width="400" height="40" fill="#081326" />
+  <path d="M0 205 Q 100 210 200 205 T 400 205 L 400 240 L 0 240 Z" fill="#0f2347" opacity="0.5" />
+
+  <!-- Statue of Liberty Silhouette & Details (Centered Right x: 230 to 330) -->
+  <!-- Fort Wood / Star Base -->
+  <path d="M210 230 L220 190 L300 190 L310 230 Z" fill="#475569" />
+  <!-- Pedestal -->
+  <rect x="235" y="150" width="50" height="40" rx="2" fill="#64748b" />
+  <rect x="240" y="125" width="40" height="25" rx="2" fill="#94a3b8" />
+  <rect x="230" y="120" width="60" height="6" fill="#cbd5e1" />
+
+  <!-- Statue Body / Robes (Patina Green) -->
+  <path d="M242 120 L248 55 L272 55 L278 120 Z" fill="#2dd4bf" />
+  <!-- Fold Shadows -->
+  <path d="M252 65 L250 115 M262 65 L260 115 M270 70 L266 115" stroke="#0f766e" stroke-width="2" />
+
+  <!-- Head & Crown -->
+  <circle cx="260" cy="45" r="7" fill="#5eead4" />
+  <!-- Crown Spikes -->
+  <path d="M254 40 L260 28 L266 40 Z" fill="#2dd4bf" />
+  <path d="M249 42 L254 33 L257 43 Z" fill="#2dd4bf" />
+  <path d="M263 43 L266 33 L271 42 Z" fill="#2dd4bf" />
+
+  <!-- Raised Right Arm & Torch -->
+  <path d="M268 55 L285 24 L279 22 L262 50 Z" fill="#2dd4bf" />
+  <!-- Torch Handle -->
+  <rect x="281" y="16" width="5" height="10" rx="1" fill="#f59e0b" />
+  <!-- Flame -->
+  <path d="M280 16 C280 6, 290 6, 290 16 Z" fill="url(#torch-glow)" />
+  <circle cx="284" cy="12" r="3" fill="#ffffff" />
+
+  <!-- Left Arm Holding Tablet -->
+  <path d="M245 60 L238 80 L248 83 L254 65 Z" fill="#2dd4bf" />
+  <rect x="235" y="75" width="7" height="10" rx="1" fill="#f8fafc" />
+
+  <!-- USA Flag Tag Badge in Bottom Left -->
+  <rect x="20" y="190" width="165" height="32" rx="6" fill="rgba(12, 35, 64, 0.9)" stroke="rgba(255,255,255,0.2)" />
+  <text x="32" y="211" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="800">🗽 Statue of Liberty</text>
+</svg>
+
