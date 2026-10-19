@@ -164,9 +164,8 @@ export default function CategoryAvailabilityOverview() {
   };
 
   useEffect(() => {
+    // Load once on mount; refresh manually to avoid unnecessary API traffic.
     fetchLiveOverview();
-    const interval = setInterval(fetchLiveOverview, 15000);
-    return () => clearInterval(interval);
   }, []);
 
   // Construct records strictly covering all 10 canonical centers

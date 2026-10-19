@@ -49,7 +49,7 @@ export default function EventsPanel() {
   useEffect(() => {
     setLoading(true);
     loadData();
-    const timer = setInterval(loadData, 20000);
+    const timer = setInterval(loadData, 60000);
     return () => clearInterval(timer);
   }, [eventCategoryTab, selectedPartner]);
 

@@ -88,7 +88,7 @@ export default function MonitoringPanel() {
 
   useEffect(() => {
     loadData();
-    const interval = setInterval(() => loadData(false), 20000);
+    const interval = setInterval(() => loadData(false), 60000);
     return () => clearInterval(interval);
   }, []);
 
