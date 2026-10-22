@@ -124,7 +124,7 @@ export default function CategoryAvailabilityOverview() {
   // Fetch live updates from backend API every 15s
   const fetchLiveOverview = async () => {
     try {
-      const res = await apiFetch("/api/updates/overview");
+      const res = await apiFetch(`/api/updates/overview?_t=${Date.now()}`);
       if (res && res.ok && res.data) {
         setDataStore((prev) => {
           const updated = { ...prev };
@@ -134,24 +134,7 @@ export default function CategoryAvailabilityOverview() {
                 ...item,
                 lastSeen: item.lastSeen ? new Date(item.lastSeen) : null,
               }));
-              const existing = updated[cat] || [];
-              const locationMap = new Map();
-              // Retain existing locations
-              existing.forEach((r) => locationMap.set(r.location, r));
-              // Overlay fresh detections
-              liveRows.forEach((r) => {
-                if (locationMap.has(r.location)) {
-                  const current = locationMap.get(r.location);
-                  const curTime = current.lastSeen ? new Date(current.lastSeen).getTime() : 0;
-                  const newTime = r.lastSeen ? new Date(r.lastSeen).getTime() : 0;
-                  if (newTime >= curTime) {
-                    locationMap.set(r.location, r);
-                  }
-                } else {
-                  locationMap.set(r.location, r);
-                }
-              });
-              updated[cat] = Array.from(locationMap.values());
+              updated[cat] = liveRows;
             }
           }
           return updated;
@@ -164,8 +147,9 @@ export default function CategoryAvailabilityOverview() {
   };
 
   useEffect(() => {
-    // Load once on mount; refresh manually to avoid unnecessary API traffic.
     fetchLiveOverview();
+    const interval = setInterval(fetchLiveOverview, 15000);
+    return () => clearInterval(interval);
   }, []);
 
   // Construct records strictly covering all 10 canonical centers

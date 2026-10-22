@@ -1,6 +1,7 @@
 import PageShell from "../components/PageShell.jsx";
 import UpdatesBoard from "../components/UpdatesBoard.jsx";
 import CategoryAvailabilityOverview from "../components/CategoryAvailabilityOverview.jsx";
+import CommunityChannelsWidget from "../components/CommunityChannelsWidget.jsx";
 
 export default function UpdatesPage() {
   return (
@@ -18,6 +19,9 @@ export default function UpdatesPage() {
             </p>
           </div>
 
+          {/* WhatsApp & Telegram Live Alert Channels */}
+          <CommunityChannelsWidget />
+
           {/* Structured Category Availability Overview Table & Screenshot Analyzer */}
           <CategoryAvailabilityOverview />
         </div>
@@ -28,4 +32,3 @@ export default function UpdatesPage() {
     </PageShell>
   );
 }
-
